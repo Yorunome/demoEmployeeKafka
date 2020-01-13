@@ -13,5 +13,8 @@ public class EmployeeController {
     @Autowired
     EmployeeServiceInterface employeeServiceInterface;
 
+    public void readFiles(){
+        employeeServiceInterface.fileReaders();
+    }
 
 }
