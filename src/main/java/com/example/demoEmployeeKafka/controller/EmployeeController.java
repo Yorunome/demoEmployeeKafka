@@ -3,7 +3,11 @@ package com.example.demoEmployeeKafka.controller;
 import com.example.demoEmployeeKafka.Entity.Employee;
 import com.example.demoEmployeeKafka.dto.EmployeeDto;
 import com.example.demoEmployeeKafka.employeeservice.EmployeeServiceInterface;
+<<<<<<< HEAD
 import org.springframework.beans.BeanUtils;
+=======
+import com.example.demoEmployeeKafka.employeeservice.EmployeeServiceInterfaceImpl;
+>>>>>>> 1bcf4dbc3ab580e59da3d7d940df10033763f3f2
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +25,7 @@ public class EmployeeController {
     @Autowired
     EmployeeServiceInterface employeeServiceInterface;
 
+<<<<<<< HEAD
     @PostMapping
     public ResponseEntity<String> addorupdate(@RequestBody EmployeeDto employeeDto)
     {
@@ -32,4 +37,9 @@ public class EmployeeController {
 
 
 
+=======
+    public void readFiles(){
+        employeeServiceInterface.fileReaders();
+    }
+    
 }
