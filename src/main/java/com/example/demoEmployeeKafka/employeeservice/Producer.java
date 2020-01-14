@@ -2,6 +2,8 @@ package com.example.demoEmployeeKafka.employeeservice;
 
 import com.example.demoEmployeeKafka.Entity.Employee;
 import com.example.demoEmployeeKafka.collection.EmployeeCollection;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -17,17 +19,21 @@ public class Producer {
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
+    ObjectMapper objectMapper = new ObjectMapper();
+
     public void sendMessage(){
 
         EmployeeCollection employeeCollection = new EmployeeCollection();
         List<Employee> employees = employeeCollection.getEmployees();
 
-        for (int i = 0; i < employees.size(); i++) {
-            this.kafkaTemplate.send(TOPIC, (employees.get(i).getFirstName()));
-            this.kafkaTemplate.send(TOPIC, (employees.get(i).getLastName()));
-            this.kafkaTemplate.send(TOPIC, (employees.get(i).getDateOfJoining().toString()));
-            //this.kafkaTemplate.send(TOPIC, (employees.get(i).getExperience()));
+        for (Employee employee: employees) {
+            try {
+                this.kafkaTemplate.send(TOPIC,objectMapper.writeValueAsString(employee));
+            }catch (JsonProcessingException exp){
+                System.out.println("error producing data");
+            }
         }
+
     }
 
 
