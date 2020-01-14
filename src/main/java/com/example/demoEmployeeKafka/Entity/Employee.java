@@ -2,12 +2,12 @@ package com.example.demoEmployeeKafka.Entity;
 
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+//import javax.persistence.Entity;
+//import javax.persistence.Table;
 import java.util.Date;
-
-@Entity
-@Table(name = "Employee")
+//
+//@Entity
+//@Table(name = "Employee")
 public class Employee {
 
     private String firstName ;
