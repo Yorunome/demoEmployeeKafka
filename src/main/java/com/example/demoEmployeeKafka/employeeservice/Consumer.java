@@ -16,7 +16,7 @@ public class Consumer {
 
     //private final Logger logger = LoggerFactory.getLogger(Producer.class);
 
-    @KafkaListener(topics = "test", groupId = "group_id")
+    @KafkaListener(topics = "Employee", groupId = "group_id")
     public void consume(String message) throws IOException {
         try{
             System.out.println(objectMapper.readValue(message, Employee.class));

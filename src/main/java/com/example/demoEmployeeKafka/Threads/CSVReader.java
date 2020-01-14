@@ -4,6 +4,7 @@ package com.example.demoEmployeeKafka.Threads;
 import com.example.demoEmployeeKafka.collection.*;
 import com.example.demoEmployeeKafka.Entity.Employee;
 import com.example.demoEmployeeKafka.filehandlers.CSVFileHandler;
+import com.example.demoEmployeeKafka.filehandlers.XMLFileHandler;
 
 
 public class CSVReader extends Thread {

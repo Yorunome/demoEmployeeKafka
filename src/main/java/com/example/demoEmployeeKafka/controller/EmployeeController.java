@@ -37,14 +37,14 @@ public class EmployeeController {
         try {
             CSVReader csvReader = new CSVReader();
             csvReader.start();
-//            XMLReader xmlReader = new XMLReader();
-//            xmlReader.start();
-//            JSONReader jsonReader = new JSONReader();
-//            jsonReader.start();
+            XMLReader xmlReader = new XMLReader();
+            xmlReader.start();
+            JSONReader jsonReader = new JSONReader();
+            jsonReader.start();
 
             csvReader.join();
-//            xmlReader.join();
-//            jsonReader.join();
+            xmlReader.join();
+            jsonReader.join();
 
         } catch (InterruptedException e) {
             e.printStackTrace();
